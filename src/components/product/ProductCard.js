@@ -4,7 +4,7 @@ import "./Product.css";
 export const ProductCard = ({ product }) => (
   <section className="product">
     <h3 className="product__name">{product.name}</h3>
-    <div className="product__breed">{product.breed}</div>
-    <address className="location__address">{product.location.name}</address>
+    <div className="product__price">${product.price}</div>
+    <div className="product__type">{product.productType.name}</div>
   </section>
 );
