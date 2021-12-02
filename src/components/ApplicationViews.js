@@ -5,21 +5,20 @@ import { LocationProvider } from "./location/LocationProvider";
 import { LocationList } from "./location/LocationList";
 import { ProductProvider } from "./product/ProductProvider";
 import { ProductList } from "./product/ProductList"
+import { ProductTypeProvider } from "./productType/ProductTypeProvider";
 
 export const ApplicationViews = () => (
-  <Routes>
-    <Route exact path="/" element={<Home />} />
-
-    <Route path="/locations" element={
-      <LocationProvider>
-        <LocationList />
-      </LocationProvider>
-    } />
-
-    <Route path="/products" element={
+  <LocationProvider>
+    <ProductTypeProvider>
       <ProductProvider>
-        <ProductList />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+
+          <Route path="/locations" element={<LocationList />} />
+
+          <Route path="/products" element={<ProductList />} />
+        </Routes>
       </ProductProvider>
-    } />
-  </Routes>
+    </ProductTypeProvider>
+  </LocationProvider>
 );
