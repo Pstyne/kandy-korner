@@ -6,18 +6,32 @@ import { LocationList } from "./location/LocationList";
 import { ProductProvider } from "./product/ProductProvider";
 import { ProductList } from "./product/ProductList"
 import { ProductTypeProvider } from "./productType/ProductTypeProvider";
+import { CustomerList } from "./customer/CustomerList";
+import { CustomerProvider } from "./customer/CustomerProvider";
+import { EmployeeList } from "./employee/EmployeeList";
+import { EmployeeProvider } from "./employee/EmployeeProvider";
+import { EmployeeForm } from "./employee/EmployeeForm";
 
 export const ApplicationViews = () => (
   <LocationProvider>
     <ProductTypeProvider>
       <ProductProvider>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
+        <EmployeeProvider>
+          <CustomerProvider>
+            <Routes>
+              <Route exact path="/" element={<Home />} />
 
-          <Route path="/locations" element={<LocationList />} />
+              <Route path="/locations" element={<LocationList />} />
 
-          <Route path="/products" element={<ProductList />} />
-        </Routes>
+              <Route path="/products" element={<ProductList />} />
+
+              <Route path="/customers" element={<CustomerList />} />
+
+              <Route path="/employees" element={<EmployeeList />} />
+              <Route path="/employees/create" element={<EmployeeForm />} />
+            </Routes>
+          </CustomerProvider>
+        </EmployeeProvider>
       </ProductProvider>
     </ProductTypeProvider>
   </LocationProvider>
