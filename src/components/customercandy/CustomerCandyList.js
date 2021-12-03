@@ -19,6 +19,7 @@ export const CustomerCandyList = () => {
       // Check for existence and increase quantity if it does
       if (memo[candy.product.name]) {
         memo[candy.product.name].quantity++;
+        parseFloat(memo[candy.product.name].total += memo[candy.product.name].price);
       
       // Otherwise lets make a new object with a default value
       // Mainly the quantity is whats important here 
@@ -26,6 +27,7 @@ export const CustomerCandyList = () => {
         memo[candy.product.name] = {}
         memo[candy.product.name]['quantity'] = 1;
         memo[candy.product.name]['price'] = candy.product.price;
+        memo[candy.product.name]['total'] = candy.product.price
         memo[candy.product.name]['name'] = candy.product.name;
         memo[candy.product.name]['id'] = ++id;
       }

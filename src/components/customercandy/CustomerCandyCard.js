@@ -6,7 +6,7 @@ export const CustomerCandyCard = ({ candy }) => {
       <tr>
         <td>{candy.name}</td>
         <td>{candy.quantity}</td>
-        <td>${candy.price}</td>
+        <td>${candy.total}</td>
       </tr>
     </>
   );
