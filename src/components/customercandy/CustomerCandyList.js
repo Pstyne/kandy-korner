@@ -2,10 +2,10 @@ import React, { useEffect, useContext } from "react";
 import { CustomerCandyCard } from "./CustomerCandyCard";
 import { CustomerCandyContext } from "./CustomerCandyProvider";
 export const CustomerCandyList = () => {
-  const { customersCandies, getCustomersCandies } = useContext(CustomerCandyContext);
+  const { customersCandies, getCustomersCandiesByCustomerId } = useContext(CustomerCandyContext);
 
   useEffect(() => {
-    getCustomersCandies();
+    getCustomersCandiesByCustomerId();
   }, []);
 
   // Create a way to remember all of the candy items

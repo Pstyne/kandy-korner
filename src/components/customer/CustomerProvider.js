@@ -24,6 +24,11 @@ export const CustomerProvider = (props) => {
     .then(res => res.json());
   }
 
+  const getCustomerById = id => {
+    return fetch(`http://localhost:8088/customers/${id}`)
+    .then(res => res.json());
+  }
+
   /*
       You return a context provider which has the
       `customers` state, `getCustomers` function,
@@ -32,7 +37,7 @@ export const CustomerProvider = (props) => {
   */
   return (
     <CustomerContext.Provider value={{
-      customers, getCustomers, addCustomer
+      customers, getCustomers, addCustomer, getCustomerById
     }}>
       {props.children}
     </CustomerContext.Provider>

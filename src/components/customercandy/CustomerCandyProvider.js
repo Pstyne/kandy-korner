@@ -7,7 +7,7 @@ export const CustomerCandyProvider = (props) => {
   const currentCustomerId = localStorage.getItem('kandy_customer');
 
   const getCustomersCandies = () => {
-    return fetch(`http://localhost:8088/customerscandies?customerId=${currentCustomerId}&_expand=product`)
+    return fetch(`http://localhost:8088/customerscandies?_expand=product`)
     .then(res => res.json())
     .then(setCustomersCandies);
   }
@@ -22,9 +22,15 @@ export const CustomerCandyProvider = (props) => {
     }).then(getCustomersCandies)
   }
 
+  const getCustomersCandiesByCustomerId = (id = currentCustomerId) => {
+    return fetch(`http://localhost:8088/customerscandies?customerId=${id}&_expand=product`)
+    .then(res => res.json())
+    .then(setCustomersCandies);
+  }
+
   return (
     <CustomerCandyContext.Provider value={{
-      customersCandies, getCustomersCandies, addCustomersCandies
+      customersCandies, getCustomersCandies, addCustomersCandies, getCustomersCandiesByCustomerId
     }}>
       {props.children}
     </CustomerCandyContext.Provider>
