@@ -12,6 +12,7 @@ import { EmployeeProvider } from "./employee/EmployeeProvider";
 import { EmployeeForm } from "./employee/EmployeeForm";
 import { CustomerCandyProvider } from "./customercandy/CustomerCandyProvider";
 import { CustomerCandyList } from "./customercandy/CustomerCandyList";
+import { EmployeeDetail } from "./employee/EmployeeDetail";
 
 export const ApplicationViews = () => (
   <LocationProvider>
@@ -30,6 +31,7 @@ export const ApplicationViews = () => (
 
                 <Route path="/employees" element={<EmployeeList />} />
                 <Route path="/employees/create" element={<EmployeeForm />} />
+                <Route path="/employees/detail/:employeeId" element={<EmployeeDetail />} />
 
                 <Route path="/my-order" element={<CustomerCandyList />} />
               </Routes>
