@@ -13,6 +13,7 @@ import { EmployeeForm } from "./employee/EmployeeForm";
 import { CustomerCandyProvider } from "./customercandy/CustomerCandyProvider";
 import { CustomerCandyList } from "./customercandy/CustomerCandyList";
 import { EmployeeDetail } from "./employee/EmployeeDetail";
+import { ProductSearch } from "./product/ProductSearch";
 
 export const ApplicationViews = () => (
   <LocationProvider>
@@ -25,7 +26,7 @@ export const ApplicationViews = () => (
 
                 <Route path="/locations" element={<LocationList />} />
 
-                <Route path="/products" element={<ProductList />} />
+                <Route path="/products" element={<><ProductSearch /><ProductList /></>} />
 
                 <Route path="/customers" element={<CustomerList />} />
 

@@ -6,6 +6,7 @@ export const ProductContext = createContext();
 // This component establishes what data can be used.
 export const ProductProvider = (props) => {
   const [products, setProducts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const getProducts = () => {
     return fetch("http://localhost:8088/products")
@@ -24,6 +25,8 @@ export const ProductProvider = (props) => {
     .then(getProducts);
   }
 
+
+
   /*
       You return a context provider which has the
       `products` state, `getProducts` function,
@@ -32,7 +35,7 @@ export const ProductProvider = (props) => {
   */
   return (
     <ProductContext.Provider value={{
-      products, getProducts, addProduct
+      products, getProducts, addProduct, searchTerm, setSearchTerm
     }}>
       {props.children}
     </ProductContext.Provider>
