@@ -14,6 +14,7 @@ import { CustomerCandyProvider } from "./customercandy/CustomerCandyProvider";
 import { CustomerCandyList } from "./customercandy/CustomerCandyList";
 import { EmployeeDetail } from "./employee/EmployeeDetail";
 import { ProductSearch } from "./product/ProductSearch";
+import { ProductDropZone } from "./product/ProductDropZone";
 
 export const ApplicationViews = () => (
   <LocationProvider>
@@ -26,7 +27,13 @@ export const ApplicationViews = () => (
 
                 <Route path="/locations" element={<LocationList />} />
 
-                <Route path="/products" element={<><ProductSearch /><ProductList /></>} />
+                <Route path="/products" element={
+                  <>
+                    <ProductSearch />
+                    <ProductDropZone />
+                    <ProductList />
+                  </>
+                } />
 
                 <Route path="/customers" element={<CustomerList />} />
 

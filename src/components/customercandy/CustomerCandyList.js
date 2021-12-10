@@ -56,7 +56,7 @@ export const CustomerCandyList = () => {
         </thead>
         <tbody>
           {
-            customersCandies.length ? aggregatedOrder.map(candy => <CustomerCandyCard key={candy.id} candy={candy} />) : ''
+            customersCandies.length ? aggregatedOrder.map(candy => <CustomerCandyCard key={candy.id} candy={candy} />) : <tr></tr>
           }
         </tbody>
       </table>
